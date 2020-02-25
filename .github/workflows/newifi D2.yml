@@ -1,0 +1,185 @@
+#
+# This is free software, lisence use MIT.
+# 
+# Copyright (C) 2019 P3TERX <https://p3terx.com>
+# Copyright (C) 2019 KFERMercer <KFER.Mercer@gmail.com>
+# 
+# <https://github.com/KFERMercer/OpenWrt-CI>
+#
+
+name: newifi D2
+
+on:
+  push:
+    branches: 
+      - master
+  #     ↑↑↑ 改成你的分支名, 一般是master
+  # schedule:
+  #   - cron: 0 20 * * *
+  # release:
+  #   types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+        with:
+          ref: master
+        #      ↑↑↑ 改成你的分支名, 一般是master
+
+      - name: Initialization environment
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          docker rmi `docker images -q`
+          echo "Deleting files, please wait ..."
+          sudo rm -rf \
+            /usr/share/dotnet \
+            /etc/mysql \
+            /etc/php
+          sudo -E apt-get -y purge \
+            azure-cli \
+            ghc* \
+            zulu* \
+            hhvm \
+            llvm* \
+            firefox \
+            google* \
+            dotnet* \
+            powershell \
+            openjdk* \
+            mysql* \
+            php*
+          sudo -E apt-get update
+          sudo -E apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler
+          sudo -E apt-get -y autoremove --purge
+          sudo -E apt-get clean
+      - name: Download lede
+        run: |
+          git config --global user.email "leaplu@163.com"
+          git config --global user.name "leaplu"
+          git clone https://github.com/coolsnowwolf/lede
+          mv ./lede/* ./
+      - name: Install aliddns
+        run: |
+          cd package
+          mkdir openwrt-packages
+          cd openwrt-packages
+          git clone https://github.com/honwen/luci-app-aliddns.git
+
+      - name: Update feeds
+        run: |
+          ./scripts/feeds update -a
+          ./scripts/feeds install -a
+      - name: Costom configure file
+        run: |
+          rm -f ./.config*
+          touch ./.config
+          cat >> .config <<EOF
+          CONFIG_TARGET_ramips=y
+          CONFIG_TARGET_ramips_mt7621=y
+          CONFIG_TARGET_ramips_mt7621_DEVICE_d-team_newifi-d2=y
+          CONFIG_LIBCURL_COOKIES=y
+          CONFIG_LIBCURL_FILE=y
+          CONFIG_LIBCURL_FTP=y
+          CONFIG_LIBCURL_HTTP=y
+          CONFIG_LIBCURL_NO_SMB="!"
+          CONFIG_LIBCURL_OPENSSL=y
+          CONFIG_LIBCURL_PROXY=y
+          CONFIG_LIBSODIUM_MINIMAL=y
+          CONFIG_OPENVPN_openssl_ENABLE_DEF_AUTH=y
+          CONFIG_OPENVPN_openssl_ENABLE_FRAGMENT=y
+          CONFIG_OPENVPN_openssl_ENABLE_LZ4=y
+          CONFIG_OPENVPN_openssl_ENABLE_LZO=y
+          CONFIG_OPENVPN_openssl_ENABLE_MULTIHOME=y
+          CONFIG_OPENVPN_openssl_ENABLE_PF=y
+          CONFIG_OPENVPN_openssl_ENABLE_PORT_SHARE=y
+          CONFIG_OPENVPN_openssl_ENABLE_SERVER=y
+          CONFIG_OPENVPN_openssl_ENABLE_SMALL=y
+          CONFIG_PACKAGE_boost=y
+          CONFIG_PACKAGE_boost-date_time=y
+          CONFIG_PACKAGE_boost-program_options=y
+          CONFIG_PACKAGE_boost-system=y
+          CONFIG_PACKAGE_ca-bundle=y
+          CONFIG_PACKAGE_curl=y
+          CONFIG_PACKAGE_frpc=y
+          CONFIG_PACKAGE_hd-idle=y
+          CONFIG_PACKAGE_ipt2socks=y
+          CONFIG_PACKAGE_kcptun-client=y
+          CONFIG_PACKAGE_kmod-macvlan=y
+          CONFIG_PACKAGE_kmod-mii=y
+          CONFIG_PACKAGE_kmod-usb-net=y
+          CONFIG_PACKAGE_kmod-usb-net-rtl8152=y
+          CONFIG_PACKAGE_kmod-usb-printer=y
+          CONFIG_PACKAGE_libcurl=y
+          CONFIG_PACKAGE_libev=y
+          CONFIG_PACKAGE_liblzo=y
+          CONFIG_PACKAGE_libmbedtls=y
+          CONFIG_PACKAGE_libsodium=y
+          CONFIG_PACKAGE_luci-app-aliddns=y
+          CONFIG_PACKAGE_luci-app-frpc=y
+          CONFIG_PACKAGE_luci-app-hd-idle=y
+          CONFIG_PACKAGE_luci-app-mwan3=y
+          CONFIG_PACKAGE_luci-app-mwan3helper=y
+          CONFIG_PACKAGE_luci-app-openvpn=y
+          CONFIG_PACKAGE_luci-app-openvpn-server=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Socks=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Simple_obfs=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray_plugin=y
+          CONFIG_PACKAGE_luci-app-syncdial=y
+          CONFIG_PACKAGE_luci-app-usb-printer=y
+          CONFIG_PACKAGE_luci-app-unblockneteasemusic-mini=y
+          CONFIG_PACKAGE_luci-app-xlnetacc=y
+          CONFIG_PACKAGE_luci-i18n-hd-idle-zh-cn=y
+          CONFIG_PACKAGE_luci-i18n-mwan3-zh-cn=y
+          CONFIG_PACKAGE_luci-i18n-mwan3helper-zh-cn=y
+          CONFIG_PACKAGE_luci-i18n-openvpn-server-zh-cn=y
+          CONFIG_PACKAGE_luci-i18n-openvpn-zh-cn=y
+          CONFIG_PACKAGE_luci-i18n-usb-printer-zh-cn=y
+          CONFIG_PACKAGE_luci-theme-argon=y
+          CONFIG_PACKAGE_mwan3=y
+          CONFIG_PACKAGE_openvpn-easy-rsa=y
+          CONFIG_PACKAGE_openvpn-openssl=y
+          CONFIG_PACKAGE_p910nd=y
+          CONFIG_PACKAGE_shadowsocks-libev-ss-redir=y
+          CONFIG_PACKAGE_shadowsocksr-libev-server=y
+          CONFIG_PACKAGE_simple-obfs=y
+          CONFIG_PACKAGE_srelay=y
+          CONFIG_PACKAGE_trojan=y
+          CONFIG_PACKAGE_v2ray=y
+          CONFIG_PACKAGE_v2ray-plugin=y
+          CONFIG_V2RAY_COMPRESS_UPX=y
+          CONFIG_V2RAY_DISABLE_NONE=y
+          CONFIG_V2RAY_EXCLUDE_ASSETS=y
+          CONFIG_V2RAY_EXCLUDE_V2CTL=y
+          CONFIG_V2RAY_JSON_INTERNAL=y
+          CONFIG_boost-compile-visibility-hidden=y
+          CONFIG_boost-runtime-shared=y
+          CONFIG_boost-static-and-shared-libs=y
+          CONFIG_boost-variant-release=y
+          EOF
+
+          sed -i 's/^[ \t]*//g' ./.config
+          make defconfig
+      - name: Download package source code
+        run: |
+          make download -j8
+          find dl -size -1024c -exec ls -l {} \;
+          find dl -size -1024c -exec rm -f {} \;
+      - name: Compile firmware
+        run: |
+          echo -e "$(nproc) thread build."
+          make -j$(nproc) V=s
+      - name : Upload artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: OpenWrt firmware
+          path: bin/targets
