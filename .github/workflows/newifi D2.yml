@@ -112,6 +112,7 @@ jobs:
           CONFIG_PACKAGE_kcptun-client=y
           CONFIG_PACKAGE_kmod-macvlan=y
           CONFIG_PACKAGE_kmod-mii=y
+          CONFIG_PACKAGE_kmod-mt7601u=y
           CONFIG_PACKAGE_kmod-usb-net=y
           CONFIG_PACKAGE_kmod-usb-net-rtl8152=y
           CONFIG_PACKAGE_kmod-usb-printer=y
