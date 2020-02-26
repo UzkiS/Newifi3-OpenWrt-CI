@@ -107,6 +107,7 @@ jobs:
           CONFIG_PACKAGE_curl=y
           CONFIG_PACKAGE_frpc=y
           CONFIG_PACKAGE_hd-idle=y
+          CONFIG_PACKAGE_ip6tables=y
           CONFIG_PACKAGE_ipt2socks=y
           CONFIG_PACKAGE_kcptun-client=y
           CONFIG_PACKAGE_kmod-macvlan=y

@@ -163,6 +163,7 @@ jobs:
           CONFIG_PACKAGE_hostapd-common=y
           CONFIG_PACKAGE_icu=y
           CONFIG_PACKAGE_ip6tables=y
+          CONFIG_PACKAGE_ip6tables=y
           CONFIG_PACKAGE_ipt2socks=y
           CONFIG_PACKAGE_iptables-mod-extra=y
           CONFIG_PACKAGE_ipv6helper=y
