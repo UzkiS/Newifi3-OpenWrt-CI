@@ -63,7 +63,7 @@ jobs:
           git remote add openwrt https://github.com/coolsnowwolf/lede.git
           git pull openwrt master --allow-unrelated-histories
           git remote -v
-      - name: install aliddns
+      - name: Install addons
         run: |
           cd package
           mkdir openwrt-packages
@@ -76,6 +76,7 @@ jobs:
           ./scripts/feeds install -a
       - name: Costom configure file
         run: |
+          sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
           rm -f ./.config*
           touch ./.config
           cat >> .config <<EOF
@@ -159,6 +160,7 @@ jobs:
           CONFIG_PACKAGE_docker-ce=y
           CONFIG_PACKAGE_fdisk=y
           CONFIG_PACKAGE_frpc=y
+          # CONFIG_PACKAGE_frps=y
           CONFIG_PACKAGE_hd-idle=y
           CONFIG_PACKAGE_hostapd-common=y
           CONFIG_PACKAGE_icu=y
@@ -185,6 +187,7 @@ jobs:
           CONFIG_PACKAGE_kmod-mac80211=y
           CONFIG_PACKAGE_kmod-macvlan=y
           CONFIG_PACKAGE_kmod-mii=y
+          CONFIG_PACKAGE_kmod-mt7601u=y
           CONFIG_PACKAGE_kmod-nf-ipvs=y
           CONFIG_PACKAGE_kmod-nf-nat6=y
           CONFIG_PACKAGE_kmod-nls-base=y
@@ -259,6 +262,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-dnspod=y
           CONFIG_PACKAGE_luci-app-dockerman=y
           CONFIG_PACKAGE_luci-app-frpc=y
+          # CONFIG_PACKAGE_luci-app-frps=y
           CONFIG_PACKAGE_luci-app-hd-idle=y
           CONFIG_PACKAGE_luci-app-minidlna=y
           CONFIG_PACKAGE_luci-app-mwan3=y
@@ -311,7 +315,6 @@ jobs:
           CONFIG_PACKAGE_luci-lib-json=y
           CONFIG_PACKAGE_luci-proto-ipv6=y
           # CONFIG_PACKAGE_luci-proto-relay is not set
-          CONFIG_PACKAGE_luci-theme-argon=y
           CONFIG_PACKAGE_minidlna=y
           CONFIG_PACKAGE_mount-utils=y
           CONFIG_PACKAGE_mwan3=y
