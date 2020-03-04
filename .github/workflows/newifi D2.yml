@@ -104,7 +104,7 @@ jobs:
 
           # Network adapter
           CONFIG_PACKAGE_kmod-mt7601u=y
-          CONFIG_PACKAGE_kmod-usb-net-rtl8152=y
+          # CONFIG_PACKAGE_kmod-usb-net-rtl8152=y
           EOF
 
           sed -i 's/^[ \t]*//g' ./.config
