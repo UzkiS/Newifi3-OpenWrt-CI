@@ -69,7 +69,7 @@ jobs:
           CONFIG_PACKAGE_ipv6helper=y
 
           # USB support
-          CONFIG_PACKAGE_kmod-usb-core=y
+          # CONFIG_PACKAGE_kmod-usb-core=y
           CONFIG_PACKAGE_kmod-usb-ohci=y
           CONFIG_PACKAGE_kmod-usb-ohci-pci=y
           CONFIG_PACKAGE_kmod-usb2=y
@@ -109,7 +109,7 @@ jobs:
 
           # Network adapter
           CONFIG_PACKAGE_kmod-mt7601u=y
-          CONFIG_PACKAGE_kmod-usb-net-rtl8152=y
+          # CONFIG_PACKAGE_kmod-usb-net-rtl8152=y
           
           # frps
           CONFIG_PACKAGE_frps=y
