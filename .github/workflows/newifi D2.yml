@@ -95,6 +95,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray_plugin=y
           CONFIG_PACKAGE_luci-app-syncdial=y
+          CONFIG_PACKAGE_luci-app-ttyd=y
           CONFIG_PACKAGE_luci-app-usb-printer=y
           CONFIG_PACKAGE_luci-app-unblockneteasemusic-mini=y
           CONFIG_PACKAGE_luci-app-xlnetacc=y
