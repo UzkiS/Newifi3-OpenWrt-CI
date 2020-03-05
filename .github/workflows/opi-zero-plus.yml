@@ -145,6 +145,12 @@ jobs:
           # frps
           CONFIG_PACKAGE_frps=y
           CONFIG_PACKAGE_luci-app-frps=y
+          
+          # not set
+          # CONFIG_PACKAGE_luci-proto-relay is not set
+          # CONFIG_PACKAGE_relayd is not set
+          # CONFIG_SAMBA4_SERVER_NETBIOS is not set
+          # CONFIG_V2RAY_COMPRESS_UPX is not set
           EOF
           
           sed -i 's/^[ \t]*//g' ./.config
@@ -157,7 +163,7 @@ jobs:
       - name: Compile firmware
         run: |
           echo -e "$(nproc) thread build."
-          make -j$1 V=s
+          make -j$(nproc) V=s
       - name : Upload artifact
         uses: actions/upload-artifact@master
         with:
