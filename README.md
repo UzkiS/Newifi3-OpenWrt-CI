@@ -7,3 +7,5 @@
 编译机器：新路由3、香橙派ZeroPlus（2G以上SDka适用）
 
 默认主题 argon
+
+添加了 frps luci-app-frps(https://github.com/lwz322/luci-app-frps)

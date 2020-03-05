@@ -3,8 +3,11 @@
 # 
 # Copyright (C) 2019 P3TERX <https://p3terx.com>
 # Copyright (C) 2019 KFERMercer <KFER.Mercer@gmail.com>
-# 
+# Copyright (C) 2020 LeapLu <https://www.ito.fun>
+#
+# <https://github.com/P3TERX/Actions-OpenWrt> 
 # <https://github.com/KFERMercer/OpenWrt-CI>
+# <https://github.com/leaplu/autoOpenWrt>
 #
 
 name: newifi D2
@@ -41,6 +44,8 @@ jobs:
           mkdir openwrt-packages
           cd openwrt-packages
           git clone https://github.com/honwen/luci-app-aliddns.git
+          git clone https://github.com/lwz322/luci-app-frps.git
+          mv ../../frps/ ./frps/
       - name: Update feeds
         run: |
           ./scripts/feeds update -a
@@ -63,7 +68,7 @@ jobs:
           CONFIG_PACKAGE_dnsmasq_full_dhcpv6=y
           CONFIG_PACKAGE_ipv6helper=y
 
-          # USB Support
+          # USB support
           CONFIG_PACKAGE_kmod-usb-ohci=y
           CONFIG_PACKAGE_kmod-usb-ohci-pci=y
           CONFIG_PACKAGE_kmod-usb2=y
@@ -75,7 +80,6 @@ jobs:
           # APP
           CONFIG_PACKAGE_luci-app-aliddns=y
           CONFIG_PACKAGE_luci-app-frpc=y
-          # CONFIG_PACKAGE_luci-app-frps=y
           CONFIG_PACKAGE_luci-app-hd-idle=y
           CONFIG_PACKAGE_luci-app-mwan3=y
           CONFIG_PACKAGE_luci-app-mwan3helper=y
@@ -94,7 +98,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-unblockneteasemusic-mini=y
           CONFIG_PACKAGE_luci-app-xlnetacc=y
 
-          # APP Lang
+          # APP lang
           CONFIG_PACKAGE_luci-i18n-hd-idle-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-mwan3-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-mwan3helper-zh-cn=y
@@ -105,8 +109,12 @@ jobs:
           # Network adapter
           CONFIG_PACKAGE_kmod-mt7601u=y
           # CONFIG_PACKAGE_kmod-usb-net-rtl8152=y
+          
+          # frps
+          CONFIG_PACKAGE_frps=y
+          CONFIG_PACKAGE_luci-app-frps=y
           EOF
-
+          
           sed -i 's/^[ \t]*//g' ./.config
           make defconfig
       - name: Download package source code
@@ -117,7 +125,7 @@ jobs:
       - name: Compile firmware
         run: |
           echo -e "$(nproc) thread build."
-          make -j1 V=s
+          make -j$(nproc) V=s
       - name : Upload artifact
         uses: actions/upload-artifact@master
         with:
