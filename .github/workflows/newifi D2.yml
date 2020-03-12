@@ -17,7 +17,7 @@ on:
     branches: 
       - master
   schedule:
-    - cron: 0 */24 * * *
+    - cron: 0 */12 * * *
 
 jobs:
   build:
@@ -45,8 +45,6 @@ jobs:
           mkdir openwrt-packages
           cd openwrt-packages
           git clone https://github.com/honwen/luci-app-aliddns.git
-          git clone https://github.com/lwz322/luci-app-frps.git
-          mv ../../frps/ ./frps/
       - name: Update feeds
         run: |
           ./scripts/feeds update -a
@@ -82,6 +80,7 @@ jobs:
           # APP
           CONFIG_PACKAGE_luci-app-aliddns=y
           CONFIG_PACKAGE_luci-app-frpc=y
+          CONFIG_PACKAGE_luci-app-frps=y
           CONFIG_PACKAGE_luci-app-hd-idle=y
           CONFIG_PACKAGE_luci-app-mwan3=y
           CONFIG_PACKAGE_luci-app-mwan3helper=y
@@ -113,9 +112,9 @@ jobs:
           CONFIG_PACKAGE_kmod-mt7601u=y
           CONFIG_PACKAGE_kmod-usb-net-rtl8152=y
           
-          # frps
-          CONFIG_PACKAGE_frps=y
-          CONFIG_PACKAGE_luci-app-frps=y
+          # frp
+          CONFIG_PACKAGE_frp=y
+          
           EOF
           
           sed -i 's/^[ \t]*//g' ./.config
