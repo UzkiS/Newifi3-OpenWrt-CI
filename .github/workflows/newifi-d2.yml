@@ -10,7 +10,7 @@
 # <https://github.com/leaplu/autoOpenWrt>
 #
 
-name: newifi D2
+name: NEWIFI-D2
 
 on:
   push:
