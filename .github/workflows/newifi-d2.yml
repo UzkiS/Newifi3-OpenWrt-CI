@@ -112,6 +112,7 @@ jobs:
 
           # Network adapter
           CONFIG_PACKAGE_kmod-mt7601u=y
+          CONFIG_PACKAGE_kmod-rtl8192cu=y
           CONFIG_PACKAGE_kmod-usb-net-rtl8152=y
           
           # frp
