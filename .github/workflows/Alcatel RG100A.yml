@@ -10,7 +10,7 @@
 # <https://github.com/leaplu/autoOpenWrt>
 #
 
-name: ASUS RT-N16
+name: Alcatel RG100A
 
 on:
   push:
