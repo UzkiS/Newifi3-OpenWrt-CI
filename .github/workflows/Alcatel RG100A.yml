@@ -57,9 +57,9 @@ jobs:
           touch ./.config
           cat >> .config <<EOF
           # Device type
-          CONFIG_TARGET_bcm63xx=y
-          CONFIG_TARGET_bcm63xx_mips74k=y
-          CONFIG_TARGET_bcm63xx_mips74k_DEVICE_Alcatel RG100A=y
+          CONFIG_TARGET_bcm6358=y
+          CONFIG_TARGET_bcm6358_mips74k=y
+          CONFIG_TARGET_bcm6358_mips74k_DEVICE_Alcatel RG100A=y
 
           # Gzip
           CONFIG_TARGET_IMAGES_GZIP=y
@@ -84,37 +84,37 @@ jobs:
           CONFIG_PACKAGE_luci-app-frps=y
           CONFIG_PACKAGE_luci-app-hd-idle=y
           # CONFIG_DEFAULT_luci-app-music-remote-center is not set
-          CONFIG_PACKAGE_luci-app-mwan3=y
+          # CONFIG_PACKAGE_luci-app-mwan3 is not set
           CONFIG_PACKAGE_luci-app-mwan3helper=y
-          CONFIG_PACKAGE_luci-app-openvpn=y
-          CONFIG_PACKAGE_luci-app-openvpn-server=y
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=y
+          # CONFIG_PACKAGE_luci-app-openvpn is not set
+          # CONFIG_PACKAGE_luci-app-openvpn-server is not set
+          # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun is not set
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Socks=y
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Simple_obfs=y
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray_plugin=y
+          # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Simple_obfs is not set
+          # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan is not set
+          # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray is not set
+          # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray_plugin is not set
           CONFIG_PACKAGE_luci-app-syncdial=y
           CONFIG_PACKAGE_luci-app-ttyd=y
           CONFIG_PACKAGE_luci-app-usb-printer=y
           # CONFIG_PACKAGE_luci-app-unblockneteasemusic-mini is not set
-          CONFIG_PACKAGE_luci-app-xlnetacc=y
+          # CONFIG_PACKAGE_luci-app-xlnetacc is not set
 
           # APP lang
           CONFIG_PACKAGE_luci-i18n-hd-idle-zh-cn=y
-          CONFIG_PACKAGE_luci-i18n-mwan3-zh-cn=y
+          # CONFIG_PACKAGE_luci-i18n-mwan3-zh-cn is not set
           CONFIG_PACKAGE_luci-i18n-mwan3helper-zh-cn=y
-          CONFIG_PACKAGE_luci-i18n-openvpn-server-zh-cn=y
-          CONFIG_PACKAGE_luci-i18n-openvpn-zh-cn=y
+          # CONFIG_PACKAGE_luci-i18n-openvpn-server-zh-cn is not set
+          # CONFIG_PACKAGE_luci-i18n-openvpn-zh-cn is not set
           CONFIG_PACKAGE_luci-i18n-usb-printer-zh-cn=y
 
           # Network adapter
-          CONFIG_PACKAGE_kmod-mt7601u=y
-          CONFIG_PACKAGE_kmod-rtl8192cu=y
-          CONFIG_PACKAGE_kmod-rtl8xxxu=y
-          CONFIG_PACKAGE_kmod-usb-net-rtl8152=y
+          CONFIG_PACKAGE_kmod-brcm-wl=y
+          CONFIG_PACKAGE_kmod-brcm-nas=y
+          # CONFIG_PACKAGE_kmod-rtl8xxxu is not set
+          # CONFIG_PACKAGE_kmod-usb-net-rtl8152 is not set
 
 
           
