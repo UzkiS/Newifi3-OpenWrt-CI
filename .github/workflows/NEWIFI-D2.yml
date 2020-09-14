@@ -113,7 +113,12 @@ jobs:
           CONFIG_PACKAGE_rtl8192cu-firmware=y
           CONFIG_PACKAGE_kmod-usb-net-rtl8152=y
           
-          #wpad
+          # Open source WIFI driver
+          CONFIG_PACKAGE_kmod-mt7603=y
+          CONFIG_PACKAGE_kmod-mt7603e=n
+          CONFIG_PACKAGE_kmod-mt76x2=y
+          CONFIG_PACKAGE_kmod-mt76x2-common=y
+          CONFIG_PACKAGE_kmod-mt76x2e=n
           CONFIG_PACKAGE_hostapd-common=y
           CONFIG_PACKAGE_wpad-openssl=y
           
