@@ -70,10 +70,6 @@ jobs:
 
           # USB support
           ONFIG_PACKAGE_kmod-usb-core=y
-          CONFIG_PACKAGE_kmod-usb-ohci=y
-          CONFIG_PACKAGE_kmod-usb-ohci-pci=y
-          CONFIG_PACKAGE_kmod-usb2=y
-          CONFIG_PACKAGE_kmod-usb2-pci=y
           CONFIG_PACKAGE_kmod-usb3=y
           # CONFIG_PACKAGE_kmod-usb-net=y
           # CONFIG_PACKAGE_kmod-usb-printer=y
