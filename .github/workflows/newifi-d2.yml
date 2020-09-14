@@ -45,7 +45,7 @@ jobs:
           cd package
           mkdir openwrt-packages
           cd openwrt-packages
-          git clone https://github.com/honwen/luci-app-aliddns.git
+          # git clone https://github.com/honwen/luci-app-aliddns.git
       - name: Update feeds
         run: |
           ./scripts/feeds update -a
@@ -79,15 +79,17 @@ jobs:
           # CONFIG_PACKAGE_kmod-usb-printer=y
 
           # APP
-          CONFIG_PACKAGE_luci-app-aliddns=y
+          # CONFIG_PACKAGE_luci-app-aliddns=y
+          CONFIG_PACKAGE_luci-app-aria2=y
           CONFIG_PACKAGE_luci-app-frpc=y
           CONFIG_PACKAGE_luci-app-frps=y
           CONFIG_PACKAGE_luci-app-hd-idle=y
           CONFIG_DEFAULT_luci-app-music-remote-center=y
-          CONFIG_PACKAGE_luci-app-mwan3=y
-          CONFIG_PACKAGE_luci-app-mwan3helper=y
+          # CONFIG_PACKAGE_luci-app-mwan3=y
+          # CONFIG_PACKAGE_luci-app-mwan3helper=y
           CONFIG_PACKAGE_luci-app-openvpn=y
           CONFIG_PACKAGE_luci-app-openvpn-server=y
+          CONFIG_PACKAGE_luci-app-samba=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server=y
@@ -96,31 +98,24 @@ jobs:
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray_plugin=y
-          CONFIG_PACKAGE_luci-app-syncdial=y
+          # CONFIG_PACKAGE_luci-app-syncdial=y
           CONFIG_PACKAGE_luci-app-ttyd=y
           CONFIG_PACKAGE_luci-app-usb-printer=y
-          CONFIG_PACKAGE_luci-app-unblockneteasemusic-mini=y
+          # CONFIG_PACKAGE_luci-app-unblockneteasemusic-mini=y
           CONFIG_PACKAGE_luci-app-xlnetacc=y
 
           # APP lang
-          CONFIG_PACKAGE_luci-i18n-hd-idle-zh-cn=y
-          CONFIG_PACKAGE_luci-i18n-mwan3-zh-cn=y
-          CONFIG_PACKAGE_luci-i18n-mwan3helper-zh-cn=y
-          CONFIG_PACKAGE_luci-i18n-openvpn-server-zh-cn=y
-          CONFIG_PACKAGE_luci-i18n-openvpn-zh-cn=y
-          CONFIG_PACKAGE_luci-i18n-usb-printer-zh-cn=y
+          # CONFIG_PACKAGE_luci-i18n-hd-idle-zh-cn=y
+          # CONFIG_PACKAGE_luci-i18n-mwan3-zh-cn=y
+          # CONFIG_PACKAGE_luci-i18n-mwan3helper-zh-cn=y
+          # CONFIG_PACKAGE_luci-i18n-openvpn-server-zh-cn=y
+          # CONFIG_PACKAGE_luci-i18n-openvpn-zh-cn=y
+          # CONFIG_PACKAGE_luci-i18n-usb-printer-zh-cn=y
 
           # Network adapter
-          CONFIG_PACKAGE_kmod-mt7601u=y
-          CONFIG_PACKAGE_kmod-rtl8192cu=y
-          CONFIG_PACKAGE_kmod-rtl8xxxu=y
+          CONFIG_PACKAGE_rtl8188eu-firmware=y
           CONFIG_PACKAGE_kmod-usb-net-rtl8152=y
 
-
-          
-          # frp
-          # CONFIG_PACKAGE_frp=y
-          
           EOF
           
           sed -i 's/^[ \t]*//g' ./.config
