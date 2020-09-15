@@ -97,7 +97,6 @@ jobs:
           # CONFIG_PACKAGE_luci-app-syncdial=y
           CONFIG_PACKAGE_luci-app-ttyd=y
           CONFIG_PACKAGE_luci-app-usb-printer=y
-          # CONFIG_PACKAGE_luci-app-unblockneteasemusic-mini=y
           CONFIG_PACKAGE_luci-app-xlnetacc=y
 
           # APP lang
@@ -109,8 +108,8 @@ jobs:
           # CONFIG_PACKAGE_luci-i18n-usb-printer-zh-cn=y
 
           # Network adapter
-          CONFIG_PACKAGE_rtl8188eu-firmware=y
-          CONFIG_PACKAGE_rtl8192cu-firmware=y
+          CONFIG_PACKAGE_kmod-rtl8xxxu=y
+          # CONFIG_PACKAGE_kmod-rtlwifi-usb=y
           CONFIG_PACKAGE_kmod-usb-net-rtl8152=y
           
           # Open source WIFI driver
