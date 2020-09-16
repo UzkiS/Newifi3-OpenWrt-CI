@@ -71,9 +71,12 @@ jobs:
           # USB support
           ONFIG_PACKAGE_kmod-usb-core=y
           CONFIG_PACKAGE_kmod-usb3=y
+          CONFIG_PACKAGE_kmod-usb-storage=y
+          CONFIG_PACKAGE_kmod-usb-storage-extras=y
           
           # Filesystem
           CONFIG_PACKAGE_kmod-fs-exfat=y
+          CONFIG_PACKAGE_kmod-fs-ext4=y
           CONFIG_PACKAGE_kmod-fs-ntfs=y
           
           # APP
@@ -82,7 +85,6 @@ jobs:
           CONFIG_PACKAGE_luci-app-frpc=y
           CONFIG_PACKAGE_luci-app-frps=y
           CONFIG_PACKAGE_luci-app-hd-idle=y
-          CONFIG_DEFAULT_luci-app-music-remote-center=y
           # CONFIG_PACKAGE_luci-app-mwan3=y
           # CONFIG_PACKAGE_luci-app-mwan3helper=y
           CONFIG_PACKAGE_luci-app-openvpn=y
@@ -98,17 +100,9 @@ jobs:
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray_plugin=y
           # CONFIG_PACKAGE_luci-app-syncdial=y
           CONFIG_PACKAGE_luci-app-ttyd=y
-          CONFIG_PACKAGE_luci-app-usb-printer=y
+          # CONFIG_PACKAGE_luci-app-usb-printer=y
           CONFIG_PACKAGE_luci-app-xlnetacc=y
 
-          # APP lang
-          # CONFIG_PACKAGE_luci-i18n-hd-idle-zh-cn=y
-          # CONFIG_PACKAGE_luci-i18n-mwan3-zh-cn=y
-          # CONFIG_PACKAGE_luci-i18n-mwan3helper-zh-cn=y
-          # CONFIG_PACKAGE_luci-i18n-openvpn-server-zh-cn=y
-          # CONFIG_PACKAGE_luci-i18n-openvpn-zh-cn=y
-          # CONFIG_PACKAGE_luci-i18n-usb-printer-zh-cn=y
-          
           # Open source WIFI driver
           CONFIG_PACKAGE_kmod-mt7603=y
           CONFIG_PACKAGE_kmod-mt7603e=n
@@ -134,5 +128,5 @@ jobs:
       - name : Upload artifact
         uses: actions/upload-artifact@master
         with:
-          name: OpenWrt firmware
+          name: OpenWrt-newifi-d2
           path: bin/targets/ramips/mt7621/openwrt-ramips-mt7621-d-team_newifi-d2-squashfs-sysupgrade.bin
