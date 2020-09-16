@@ -71,9 +71,11 @@ jobs:
           # USB support
           ONFIG_PACKAGE_kmod-usb-core=y
           CONFIG_PACKAGE_kmod-usb3=y
-          # CONFIG_PACKAGE_kmod-usb-net=y
-          # CONFIG_PACKAGE_kmod-usb-printer=y
-
+          
+          # Filesystem
+          CONFIG_PACKAGE_kmod-fs-exfat=y
+          CONFIG_PACKAGE_kmod-fs-ntfs=y
+          
           # APP
           CONFIG_PACKAGE_luci-app-aliddns=y
           CONFIG_PACKAGE_luci-app-aria2=y
@@ -106,11 +108,6 @@ jobs:
           # CONFIG_PACKAGE_luci-i18n-openvpn-server-zh-cn=y
           # CONFIG_PACKAGE_luci-i18n-openvpn-zh-cn=y
           # CONFIG_PACKAGE_luci-i18n-usb-printer-zh-cn=y
-
-          # Network adapter
-          CONFIG_PACKAGE_kmod-rtl8xxxu=y
-          # CONFIG_PACKAGE_kmod-rtlwifi-usb=y
-          CONFIG_PACKAGE_kmod-usb-net-rtl8152=y
           
           # Open source WIFI driver
           CONFIG_PACKAGE_kmod-mt7603=y
