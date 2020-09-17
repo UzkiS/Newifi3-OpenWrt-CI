@@ -73,6 +73,7 @@ jobs:
           CONFIG_PACKAGE_kmod-usb3=y
           CONFIG_PACKAGE_kmod-usb-storage=y
           CONFIG_PACKAGE_kmod-usb-storage-extras=y
+          CONFIG_PACKAGE_automount=y
           
           # Filesystem
           CONFIG_PACKAGE_kmod-fs-exfat=y
