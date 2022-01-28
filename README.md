@@ -1,3 +1,8 @@
+### 先弃更，最近编译出来的没有wifi，我还没找到解决方案
+大家可以转去
+https://github.com/Hyy2001X/AutoBuild-Actions
+这个也挺好用的！
+
 # 新路由3（Newifi-D2）自动编译最新版OpenWrt（Lede）
 
 *每12小时自动编译一次，在Action中下载*
