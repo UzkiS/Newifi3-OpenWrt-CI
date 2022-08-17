@@ -107,6 +107,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray_Plugin=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray=y
+          CONFIG_PACKAGE_luci-app-wol=n
           CONFIG_PACKAGE_luci-app-wolplus=y
 
           
@@ -127,4 +128,4 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: OpenWrt-PSG1218
-          path: bin/targets/ramips/mt7620/openwrt-ramips-mt7620-phicomm_psg1218a-initramfs-kernel.bin
+          path: bin/targets/ramips/mt7620/
