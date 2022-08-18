@@ -46,9 +46,8 @@ jobs:
           git clone https://github.com/kiddin9/openwrt-packages.git
           cd package
           mkdir openwrt-packages
-          mv ../openwrt-packages/luci-app-aliddns openwrt-packages/luci-app-aliddns
           mv ../openwrt-packages/luci-app-eqos openwrt-packages/luci-app-eqos
-          mv ../openwrt-packages/luci-app-wolplus openwrt-packages/luci-app-wolplus
+          # mv ../openwrt-packages/luci-app-wolplus openwrt-packages/luci-app-wolplus
           cd lean
           rm -rf luci-theme-argon  
           git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git  
