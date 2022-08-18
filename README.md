@@ -1,44 +1,72 @@
-### 先弃更，最近编译出来的没有wifi，我还没找到解决方案
-大家可以转去
-https://github.com/Hyy2001X/AutoBuild-Actions
-这个也挺好用的！
+# 新路由 3（Newifi-D2）自动编译最新版 OpenWrt（Lede）
 
-# 新路由3（Newifi-D2）自动编译最新版OpenWrt（Lede）
+_每 12 小时自动编译一次，在 Action 中下载_
 
-*每12小时自动编译一次，在Action中下载*
+## 特性
 
-## 编译特性
-- 默认主题为argon
-- 默认使用开源WIFI驱动（支持802.11kvr）
-- 默认启用helloworld
-- 外挂存储支持格式exfat, ntfs, ext4
+- 主题: argon
+- 开源 WIFI 驱动（支持 802.11kvr）
+- 外挂存储:exfat, ntfs, ext4
 
-## 插件列表
+## 插件
 
-| 插件名                  | 说明               |
-| ---------------------- | ----------------- | 
-| aliddns                | 阿里云DDNS         |  
-| aria2                  | Aria2下载工具       |
-| frpc/frps              | 内网穿透客户端/服务端 |
-| hd-idle                | 硬盘休眠            |
-| openvpn/openvpn-server | OpenVPN客户端/服务端 |
-| samba                  | Samba文件共享       |
-| ttyd                   | 网页终端            |
-| xlnetacc               | 迅雷快鸟            |
-| helloworld             | -                  |
+- aliddns
+- aria2
+- easymesh
+- eqos // IP 网速控制
+- frpc/frps // 内网穿透客户端+服务端
+- helloworld
+- hd-idle // 硬盘休眠
+- mwan3/mwan3helper/syncdial // 均衡负载及多拨
+- openvpn/openvpn-server
+- qos
+- samba // Samba 文件共享
+- ttyd //网页终端
+- turboacc // Turbo ACC 网络加速
+- vlmcsd // KMS 服务器
+- wolplus
+- xlnetacc //迅雷快鸟
+- zerotier
 
-
-*如需多拨功能，取消`.github/workflows/NEWIFI-D2.yml`中如下三行的注释*
-```
-# CONFIG_PACKAGE_luci-app-mwan3=y
-# CONFIG_PACKAGE_luci-app-mwan3helper=y
-# CONFIG_PACKAGE_luci-app-syncdial=y
-```
 ## 网关地址
+
 - IP 192.168.1.1
 - Username root
 - Password password
 
+## 也可以编译 K2 的固件
+
+> 8M 的固件，要啥啥没有，删了挺多功能的，还没有实际上机测试过能不能跑，自己测试哈
+
+## 编译思路
+
+当从路由 mesh 用，也能勉强当当主路由
+
+## 特性
+
+- 多拨
+- mesh
+
+## 插件
+
+- aria2
+- easymesh
+- eqos // IP 网速控制
+- helloworld
+- mwan3/mwan3helper/syncdial // 均衡负载及多拨
+- turboacc // Turbo ACC 网络加速
+
+## 没有的功能
+
+- curl
+- dropbear
+- opkg
+- luci-app-filetransfer
+- luci-app-nlbwmo
+- luci-app-vsftpd
+- luci-app-wol
+
 ## Credits
+
 - [coolsnowwolf/lede](https://github.com/coolsnowwolf/lede)
 - [KFERMercer/OpenWrt-CI](https://github.com/KFERMercer/OpenWrt-CI)
