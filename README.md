@@ -49,7 +49,6 @@ _每 12 小时自动编译一次，在 Action 中下载_
 
 ## 插件
 
-- aria2
 - easymesh
 - eqos // IP 网速控制
 - helloworld
