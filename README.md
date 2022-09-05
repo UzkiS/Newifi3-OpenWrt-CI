@@ -25,6 +25,7 @@ _每 12 小时自动编译一次，在 Action 中下载_
 - turboacc // Turbo ACC 网络加速
 - vlmcsd // KMS 服务器
 - wolplus
+- wrtbwmon
 - xlnetacc //迅雷快鸟
 - zerotier
 
