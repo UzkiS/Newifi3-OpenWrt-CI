@@ -1,11 +1,11 @@
 #
 # This is free software, lisence use MIT.
-# 
+#
 # Copyright (C) 2019 P3TERX <https://p3terx.com>
 # Copyright (C) 2019 KFERMercer <KFER.Mercer@gmail.com>
 # Copyright (C) 2020 LemoFire <https://www.ito.fun>
 #
-# <https://github.com/P3TERX/Actions-OpenWrt> 
+# <https://github.com/P3TERX/Actions-OpenWrt>
 # <https://github.com/KFERMercer/OpenWrt-CI>
 # <https://github.com/LemoFire/autoOpenWrt>
 #
@@ -14,7 +14,7 @@ name: NEWIFI-D2
 
 on:
   push:
-    branches: 
+    branches:
       - master
   schedule:
     - cron: 0 */12 * * *
@@ -51,7 +51,7 @@ jobs:
           mv ../openwrt-packages/luci-app-wolplus openwrt-packages/luci-app-wolplus
           cd lean
           rm -rf luci-theme-argon  
-          git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git  
+          git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
       - name: Update feeds
         run: |
           ./scripts/feeds update -a
@@ -82,7 +82,7 @@ jobs:
           CONFIG_PACKAGE_kmod-fs-exfat=y
           CONFIG_PACKAGE_kmod-fs-ext4=y
           CONFIG_PACKAGE_kmod-fs-ntfs=y
-          
+
           # APP
           # CONFIG_PACKAGE_luci-app-aliyundrive-webdav=y
           CONFIG_PACKAGE_luci-app-aria2=y
@@ -96,7 +96,6 @@ jobs:
           CONFIG_PACKAGE_luci-app-openvpn=y
           CONFIG_PACKAGE_luci-app-openvpn-server=y
           CONFIG_PACKAGE_luci-app-qos=y
-          CONFIG_PACKAGE_luci-app-samba=y        
           CONFIG_PACKAGE_luci-app-syncdial=y
           CONFIG_PACKAGE_luci-app-ttyd=y
           CONFIG_PACKAGE_luci-app-turboacc=y
@@ -109,7 +108,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-wrtbwmon=y
           CONFIG_PACKAGE_luci-app-xlnetacc=y
           CONFIG_PACKAGE_luci-app-zerotier=y
-          
+
           # Third party packages
           CONFIG_PACKAGE_luci-app-aliddns=y
           CONFIG_PACKAGE_luci-app-eqos=y
@@ -125,7 +124,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray=y
           CONFIG_PACKAGE_luci-app-wol=n
           CONFIG_PACKAGE_luci-app-wolplus=y
-          
+
           # WIFI driver
           CONFIG_PACKAGE_kmod-mt7603=y
           CONFIG_PACKAGE_kmod-mt76x2=y
@@ -136,9 +135,9 @@ jobs:
           CONFIG_PACKAGE_luci-app-mtwifi=n
           CONFIG_PACKAGE_mt_wifi=n
 
-          
+
           EOF
-          
+
           sed -i 's/^[ \t]*//g' ./.config
           make defconfig
       - name: Download package source code
@@ -150,7 +149,7 @@ jobs:
         run: |
           echo -e "$(nproc) thread build."
           make -j$(nproc) V=s
-      - name : Upload artifact
+      - name: Upload artifact
         uses: actions/upload-artifact@master
         with:
           name: OpenWrt-newifi-d2

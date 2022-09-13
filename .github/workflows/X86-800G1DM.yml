@@ -104,8 +104,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-openvpn-server=y
           CONFIG_PACKAGE_luci-app-qos=y
           # CONFIG_PACKAGE_luci-app-ramfree=y
-          # CONFIG_PACKAGE_luci-app-rclone=y       
-          CONFIG_PACKAGE_luci-app-samba=y        
+          # CONFIG_PACKAGE_luci-app-rclone=y          
           CONFIG_PACKAGE_luci-app-syncdial=y
           CONFIG_PACKAGE_luci-app-ttyd=y
           CONFIG_PACKAGE_luci-app-turboacc=y

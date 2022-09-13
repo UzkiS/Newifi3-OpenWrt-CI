@@ -81,7 +81,6 @@ jobs:
           # CONFIG_PACKAGE_kmod-fs-ext4=y
           # CONFIG_PACKAGE_kmod-fs-ntfs=y
           # CONFIG_PACKAGE_kmod-fs-xfs=y
-          CONFIG_PACKAGE_autosamba=n
 
           # APP
           CONFIG_PACKAGE_luci-app-aria2=n
@@ -100,8 +99,6 @@ jobs:
           CONFIG_PACKAGE_luci-app-openvpn-server=y
           CONFIG_PACKAGE_luci-app-qos=y
           CONFIG_PACKAGE_luci-app-ramfree=n
-          CONFIG_PACKAGE_luci-app-samba=n
-          CONFIG_PACKAGE_luci-app-samba4=n
           CONFIG_PACKAGE_luci-app-syncdial=y
           CONFIG_PACKAGE_luci-app-ttyd=y
           CONFIG_PACKAGE_luci-app-turboacc=y
