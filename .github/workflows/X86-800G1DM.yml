@@ -64,36 +64,21 @@ jobs:
           touch ./.config
           cat >> .config <<EOF
           # Device type
-          CONFIG_TARGET_ROOTFS_PARTSIZE=10000
           CONFIG_TARGET_IMAGES_GZIP=y
           # IPv6
           CONFIG_PACKAGE_dnsmasq_full_dhcpv6=y
           CONFIG_PACKAGE_ipv6helper=y
           # Storage
-          # CONFIG_PACKAGE_kmod-usb-core=y
+          CONFIG_PACKAGE_autosamba=y
           CONFIG_PACKAGE_kmod-usb3=y
-          CONFIG_PACKAGE_kmod-usb-storage=y
-          CONFIG_PACKAGE_kmod-usb-storage-extras=y
-          CONFIG_PACKAGE_automount=y
           CONFIG_PACKAGE_kmod-fs-btrfs=y
-          CONFIG_PACKAGE_kmod-fs-exfat=y
-          CONFIG_PACKAGE_kmod-fs-ext4=y
-          CONFIG_PACKAGE_kmod-fs-ntfs=y
-          CONFIG_PACKAGE_kmod-fs-xfs=y
 
           # APP
           CONFIG_PACKAGE_luci-app-aliyundrive-fuse=y
           CONFIG_PACKAGE_luci-app-aliyundrive-webdav=y
           CONFIG_PACKAGE_luci-app-aria2=y
           CONFIG_PACKAGE_luci-app-baidupcs-web=y
-          # CONFIG_PACKAGE_luci-app-easymesh=y
           CONFIG_PACKAGE_luci-app-ddns=y
-          # CONFIG_PACKAGE_luci-app-diskman=y
-          # CONFIG_PACKAGE_luci-app-diskman_INCLUDE_btrfs_progs=y
-          # CONFIG_PACKAGE_luci-app-diskman_INCLUDE_mdadm=y
-          # CONFIG_PACKAGE_luci-app-diskman_INCLUDE_kmod_md_raid456=y
-          # CONFIG_PACKAGE_luci-app-diskman_INCLUDE_kmod_md_linear=y
-          # CONFIG_PACKAGE_luci-app-docker=y
           CONFIG_PACKAGE_luci-app-dockerman=y
           CONFIG_PACKAGE_luci-app-frpc=y
           CONFIG_PACKAGE_luci-app-frps=y
@@ -102,9 +87,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-mwan3helper=y
           CONFIG_PACKAGE_luci-app-openvpn=y
           CONFIG_PACKAGE_luci-app-openvpn-server=y
-          CONFIG_PACKAGE_luci-app-qos=y
-          # CONFIG_PACKAGE_luci-app-ramfree=y
-          # CONFIG_PACKAGE_luci-app-rclone=y          
+          CONFIG_PACKAGE_luci-app-qos=y       
           CONFIG_PACKAGE_luci-app-syncdial=y
           CONFIG_PACKAGE_luci-app-ttyd=y
           CONFIG_PACKAGE_luci-app-turboacc=y
@@ -116,7 +99,6 @@ jobs:
           CONFIG_PACKAGE_luci-app-uugamebooster=y
           CONFIG_PACKAGE_luci-app-vlmcsd=y
           CONFIG_PACKAGE_luci-app-v2ray-server=y
-          CONFIG_PACKAGE_luci-app-webdav=y
           CONFIG_PACKAGE_luci-app-wrtbwmon=y
           CONFIG_PACKAGE_luci-app-xlnetacc=y
           CONFIG_PACKAGE_luci-app-zerotier=y
@@ -136,13 +118,10 @@ jobs:
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray=y
           CONFIG_PACKAGE_luci-app-wol=n
           CONFIG_PACKAGE_luci-app-wolplus=y
-
           CONFIG_PACKAGE_luci-theme-argon=y
-
-          CONFIG_PACKAGE_kmod-mt7921e=y
           CONFIG_PACKAGE_kmod-usb-net-rndis=y
 
-          # CONFIG_PACKAGE_gmediarender=y
+          CONFIG_PACKAGE_kmod-mt7921e=y
 
           EOF
 

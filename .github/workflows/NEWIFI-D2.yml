@@ -74,17 +74,12 @@ jobs:
           CONFIG_PACKAGE_ipv6helper=y
 
           # Storage
-          # CONFIG_PACKAGE_kmod-usb-core=y
+          CONFIG_PACKAGE_autosamba=y
           CONFIG_PACKAGE_kmod-usb3=y
-          CONFIG_PACKAGE_kmod-usb-storage=y
-          CONFIG_PACKAGE_kmod-usb-storage-extras=y
           CONFIG_PACKAGE_automount=y
-          CONFIG_PACKAGE_kmod-fs-exfat=y
-          CONFIG_PACKAGE_kmod-fs-ext4=y
-          CONFIG_PACKAGE_kmod-fs-ntfs=y
+          
 
           # APP
-          # CONFIG_PACKAGE_luci-app-aliyundrive-webdav=y
           CONFIG_PACKAGE_luci-app-aria2=y
           CONFIG_PACKAGE_luci-app-easymesh=y
           CONFIG_PACKAGE_luci-app-ddns=y
@@ -102,7 +97,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-turboacc_INCLUDE_SHORTCUT_FE_CM=y
           CONFIG_PACKAGE_luci-app-turboacc_INCLUDE_BBR_CCA=y
           CONFIG_PACKAGE_luci-app-turboacc_INCLUDE_PDNSD=y  
-          # CONFIG_PACKAGE_luci-app-usb-printer=y
+          CONFIG_PACKAGE_luci-app-usb-printer=y
           CONFIG_PACKAGE_luci-app-upnp=y
           CONFIG_PACKAGE_luci-app-vlmcsd=y
           CONFIG_PACKAGE_luci-app-wrtbwmon=y
