@@ -64,12 +64,12 @@ jobs:
           CONFIG_TARGET_ramips_mt7620_DEVICE_phicomm_psg1218a=y
           CONFIG_TARGET_IMAGES_GZIP=y
 
-          CONFIG_PACKAGE_dnsmasq_full_dhcpv6=y
-          CONFIG_PACKAGE_ipv6helper=y
+          # CONFIG_PACKAGE_dnsmasq_full_dhcpv6=y
+          # CONFIG_PACKAGE_ipv6helper=y
 
           CONFIG_PACKAGE_busybox=n
           CONFIG_PACKAGE_ca-certificates=n
-          
+
           CONFIG_PACKAGE_curl=n
           CONFIG_PACKAGE_ddns-scripts=n
           CONFIG_PACKAGE_ddns-scripts_aliyun=n
@@ -87,31 +87,23 @@ jobs:
           CONFIG_PACKAGE_luci-app-filetransfer=n
           CONFIG_PACKAGE_luci-app-nlbwmon=n
           CONFIG_PACKAGE_luci-app-vsftpd=n
-          CONFIG_PACKAGE_luci-app-vlmcsd=n
+          CONFIG_PACKAGE_luci-app-vlmcsd=y
           CONFIG_PACKAGE_luci-app-wol=n
 
           CONFIG_PACKAGE_luci-app-turboacc=y
-          CONFIG_PACKAGE_luci-app-turboacc_INCLUDE_SHORTCUT_FE_CM=y
-          CONFIG_PACKAGE_luci-app-turboacc_INCLUDE_BBR_CCA=y
+          # CONFIG_PACKAGE_luci-app-turboacc_INCLUDE_SHORTCUT_FE_CM=y
+          # CONFIG_PACKAGE_luci-app-turboacc_INCLUDE_BBR_CCA=y
           CONFIG_PACKAGE_luci-app-turboacc_INCLUDE_PDNSD=n
           CONFIG_PACKAGE_luci-app-upnp=y
           CONFIG_PACKAGE_luci-app-eqos=y
-          CONFIG_PACKAGE_luci-app-easymesh=y
+          CONFIG_PACKAGE_luci-app-easymesh=y  
           CONFIG_PACKAGE_luci-app-mwan3=y
           CONFIG_PACKAGE_luci-app-mwan3helper=y
           CONFIG_PACKAGE_luci-app-syncdial=y
-
+          CONFIG_PACKAGE_luci-app-ramfree=n
           CONFIG_PACKAGE_luci-app-ssr-plus=y
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=n
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_IPT2Socks=n
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Libev_Client=n
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Libev_Server=n
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Libev_Client=n
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Simple_Obfs=n
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=n
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray_Plugin=n
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray=y
-          
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Simple_Obfs=n
           EOF
           
           sed -i 's/^[ \t]*//g' ./.config
