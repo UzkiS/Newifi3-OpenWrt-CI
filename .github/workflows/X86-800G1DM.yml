@@ -120,7 +120,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-wolplus=y
           CONFIG_PACKAGE_luci-theme-argon=y
           CONFIG_PACKAGE_kmod-usb-net-rndis=y
-
+          CONFIG_PACKAGE_wpad-openssl=y
           CONFIG_PACKAGE_kmod-mt7921e=y
 
           EOF
