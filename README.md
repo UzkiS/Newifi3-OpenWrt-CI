@@ -54,6 +54,7 @@ _每 12 小时自动编译一次，在 Action 中下载_
 - eqos // IP 网速控制
 - mwan3/mwan3helper/syncdial // 均衡负载及多拨
 - turboacc // Turbo ACC 网络加速
+- helloworld
 
 ## 没有的功能
 

@@ -87,12 +87,10 @@ jobs:
           CONFIG_PACKAGE_luci-app-filetransfer=n
           CONFIG_PACKAGE_luci-app-nlbwmon=n
           CONFIG_PACKAGE_luci-app-vsftpd=n
-          CONFIG_PACKAGE_luci-app-vlmcsd=y
+          CONFIG_PACKAGE_luci-app-vlmcsd=n
           CONFIG_PACKAGE_luci-app-wol=n
 
           CONFIG_PACKAGE_luci-app-turboacc=y
-          # CONFIG_PACKAGE_luci-app-turboacc_INCLUDE_SHORTCUT_FE_CM=y
-          # CONFIG_PACKAGE_luci-app-turboacc_INCLUDE_BBR_CCA=y
           CONFIG_PACKAGE_luci-app-turboacc_INCLUDE_PDNSD=n
           CONFIG_PACKAGE_luci-app-upnp=y
           CONFIG_PACKAGE_luci-app-eqos=y
