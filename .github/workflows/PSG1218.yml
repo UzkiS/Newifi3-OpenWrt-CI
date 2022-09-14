@@ -64,8 +64,8 @@ jobs:
           CONFIG_TARGET_ramips_mt7620_DEVICE_phicomm_psg1218a=y
           CONFIG_TARGET_IMAGES_GZIP=y
 
-          # CONFIG_PACKAGE_dnsmasq_full_dhcpv6=y
-          # CONFIG_PACKAGE_ipv6helper=y
+          CONFIG_PACKAGE_dnsmasq_full_dhcpv6=y
+          CONFIG_PACKAGE_ipv6helper=y
 
           CONFIG_PACKAGE_busybox=n
           CONFIG_PACKAGE_ca-certificates=n
