@@ -1,11 +1,11 @@
 #
 # This is free software, lisence use MIT.
-# 
+#
 # Copyright (C) 2019 P3TERX <https://p3terx.com>
 # Copyright (C) 2019 KFERMercer <KFER.Mercer@gmail.com>
 # Copyright (C) 2020 LemoFire <https://www.ito.fun>
 #
-# <https://github.com/P3TERX/Actions-OpenWrt> 
+# <https://github.com/P3TERX/Actions-OpenWrt>
 # <https://github.com/KFERMercer/OpenWrt-CI>
 # <https://github.com/LemoFire/autoOpenWrt>
 #
@@ -14,7 +14,7 @@ name: PSG1218
 
 on:
   push:
-    branches: 
+    branches:
       - master
   schedule:
     - cron: 0 */12 * * *
@@ -67,6 +67,7 @@ jobs:
           CONFIG_PACKAGE_dnsmasq_full_dhcpv6=y
           CONFIG_PACKAGE_ipv6helper=y
 
+          # CONFIG_PACKAGE_block-mount=n
           CONFIG_PACKAGE_busybox=n
           CONFIG_PACKAGE_ca-certificates=n
 
@@ -93,7 +94,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-turboacc=y
           CONFIG_PACKAGE_luci-app-turboacc_INCLUDE_PDNSD=n
           CONFIG_PACKAGE_luci-app-upnp=y
-          CONFIG_PACKAGE_luci-app-eqos=y
+          # CONFIG_PACKAGE_luci-app-eqos=y
           CONFIG_PACKAGE_luci-app-easymesh=y  
           CONFIG_PACKAGE_luci-app-mwan3=y
           CONFIG_PACKAGE_luci-app-mwan3helper=y
@@ -103,7 +104,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Libev_Client=n
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Simple_Obfs=n
           EOF
-          
+
           sed -i 's/^[ \t]*//g' ./.config
           make defconfig
       - name: Download package source code
@@ -115,7 +116,7 @@ jobs:
         run: |
           echo -e "$(nproc) thread build."
           make -j$(nproc) V=s
-      - name : Upload artifact
+      - name: Upload artifact
         uses: actions/upload-artifact@master
         with:
           name: OpenWrt-PSG1218
