@@ -76,7 +76,7 @@ jobs:
           CONFIG_PACKAGE_automount=y
 
           # APP
-          CONFIG_PACKAGE_luci-app-aria2=y
+          # CONFIG_PACKAGE_luci-app-aria2=y
           # CONFIG_PACKAGE_luci-app-easymesh=y
           CONFIG_PACKAGE_luci-app-ddns=y
           CONFIG_PACKAGE_luci-app-frpc=y
@@ -90,15 +90,12 @@ jobs:
           CONFIG_PACKAGE_luci-app-syncdial=y
           CONFIG_PACKAGE_luci-app-ttyd=y
           CONFIG_PACKAGE_luci-app-turboacc=y
-          CONFIG_PACKAGE_luci-app-turboacc_INCLUDE_SHORTCUT_FE_CM=y
-          CONFIG_PACKAGE_luci-app-turboacc_INCLUDE_BBR_CCA=y
-          CONFIG_PACKAGE_luci-app-turboacc_INCLUDE_PDNSD=y  
           CONFIG_PACKAGE_luci-app-usb-printer=y
           CONFIG_PACKAGE_luci-app-upnp=y
           CONFIG_PACKAGE_luci-app-vlmcsd=y
           CONFIG_PACKAGE_luci-app-wrtbwmon=y
           # CONFIG_PACKAGE_luci-app-xlnetacc=y
-          CONFIG_PACKAGE_luci-app-zerotier=y
+          # CONFIG_PACKAGE_luci-app-zerotier=y
           # Third party packages
           CONFIG_PACKAGE_luci-app-aliddns=y
           CONFIG_PACKAGE_luci-app-eqos=y
