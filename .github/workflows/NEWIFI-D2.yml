@@ -137,12 +137,12 @@ jobs:
 
       - name: Download package source code
         run: |
+          make defconfig
           make download -j8
           find dl -size -1024c -exec ls -l {} \;
           find dl -size -1024c -exec rm -f {} \;
       - name: Compile firmware(OpenSource)
         run: |
-          make defconfig
           echo -e "$(nproc) thread build."
           make -j$(nproc) V=s
       - name: Upload artifact
