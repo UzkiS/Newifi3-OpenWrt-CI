@@ -77,14 +77,12 @@ jobs:
           CONFIG_PACKAGE_autosamba=y
           CONFIG_PACKAGE_kmod-usb3=y
           CONFIG_PACKAGE_automount=y
-          
+
 
           # APP
-          # CONFIG_PACKAGE_luci-app-aria2=y
-          CONFIG_PACKAGE_luci-app-easymesh=y
+          CONFIG_PACKAGE_luci-app-aria2=y
           CONFIG_PACKAGE_luci-app-ddns=y
           CONFIG_PACKAGE_luci-app-frpc=y
-          CONFIG_PACKAGE_luci-app-frps=y
           CONFIG_PACKAGE_luci-app-hd-idle=y
           CONFIG_PACKAGE_luci-app-mwan3=y
           CONFIG_PACKAGE_luci-app-mwan3helper=y
@@ -98,8 +96,8 @@ jobs:
           CONFIG_PACKAGE_luci-app-upnp=y
           CONFIG_PACKAGE_luci-app-vlmcsd=y
           CONFIG_PACKAGE_luci-app-wrtbwmon=y
-          # CONFIG_PACKAGE_luci-app-xlnetacc=y
-          # CONFIG_PACKAGE_luci-app-zerotier=y
+          CONFIG_PACKAGE_luci-app-xlnetacc=y
+          CONFIG_PACKAGE_luci-app-zerotier=y
 
           # Third party packages
           CONFIG_PACKAGE_luci-app-aliddns=y
@@ -117,6 +115,14 @@ jobs:
           CONFIG_PACKAGE_luci-app-wol=n
           CONFIG_PACKAGE_luci-app-wolplus=y
 
+          EOF
+
+          sed -i 's/^[ \t]*//g' ./.config
+          cp .config .config.cs
+
+          cat >> .config <<EOF
+          CONFIG_PACKAGE_luci-app-easymesh=y
+          CONFIG_PACKAGE_luci-app-guest-wifi=y
           # WIFI driver
           CONFIG_PACKAGE_kmod-mt7603=y
           CONFIG_PACKAGE_kmod-mt76x2=y
@@ -126,23 +132,33 @@ jobs:
           CONFIG_PACKAGE_kmod-mt76x2e=n
           CONFIG_PACKAGE_luci-app-mtwifi=n
           CONFIG_PACKAGE_mt_wifi=n
-
-
           EOF
-
           sed -i 's/^[ \t]*//g' ./.config
-          make defconfig
+
       - name: Download package source code
         run: |
           make download -j8
           find dl -size -1024c -exec ls -l {} \;
           find dl -size -1024c -exec rm -f {} \;
-      - name: Compile firmware
+      - name: Compile firmware(OpenSource)
         run: |
+          make defconfig
           echo -e "$(nproc) thread build."
           make -j$(nproc) V=s
       - name: Upload artifact
         uses: actions/upload-artifact@master
         with:
           name: OpenWrt-newifi-d2
+          path: bin/targets/ramips/mt7621/openwrt-ramips-mt7621-d-team_newifi-d2-squashfs-sysupgrade.bin
+      - name: Compile firmware
+        run: |
+          rm -f ./.config
+          mv .config.cs .config
+          make defconfig
+          echo -e "$(nproc) thread build."
+          make -j$(nproc) V=s
+      - name: Upload artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: OpenWrt-newifi-d2_cs
           path: bin/targets/ramips/mt7621/openwrt-ramips-mt7621-d-team_newifi-d2-squashfs-sysupgrade.bin
