@@ -35,36 +35,6 @@ _每 12 小时自动编译一次，在 Action 中下载_
 - Username root
 - Password password
 
-## 也可以编译 K2 的固件（不可以编译成功，建议转高恪）
-
-> 8M 的固件，要啥啥没有，删了挺多功能的，还没有实际上机测试过能不能跑，自己测试哈
-
-## 编译思路
-
-当从路由 mesh 用，也能勉强当当主路由
-
-## 特性
-
-- 多拨
-- mesh
-
-## 插件
-
-- easymesh
-- mwan3/mwan3helper/syncdial // 均衡负载及多拨
-- turboacc // Turbo ACC 网络加速
-- helloworld
-
-## 没有的功能
-
-- curl
-- dropbear
-- opkg
-- luci-app-filetransfer
-- luci-app-nlbwmo
-- luci-app-vsftpd
-- luci-app-wol
-
 ## Credits
 
 - [coolsnowwolf/lede](https://github.com/coolsnowwolf/lede)
