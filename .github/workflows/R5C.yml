@@ -133,15 +133,6 @@ jobs:
           make download -j8
           find dl -size -1024c -exec ls -l {} \;
           find dl -size -1024c -exec rm -f {} \;
-      - name: Compile firmware(OpenSource)
-        run: |
-          echo -e "$(nproc) thread build."
-          make -j$(nproc) V=s
-      - name: Upload artifact
-        uses: actions/upload-artifact@master
-        with:
-          name: OpenWrt-newifi-d2
-          path: bin/targets/ramips/mt7621/openwrt-ramips-mt7621-d-team_newifi-d2-squashfs-sysupgrade.bin
       - name: Compile firmware
         run: |
           make defconfig
@@ -150,5 +141,5 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@master
         with:
-          name: 
+          name: R5C
           path: bin/targets
