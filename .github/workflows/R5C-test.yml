@@ -112,6 +112,8 @@ jobs:
           CONFIG_PACKAGE_luci-app-passwall=y
           CONFIG_PACKAGE_luci-app-wol=n
           CONFIG_PACKAGE_luci-app-wolplus=y
+          
+          CONFIG_PACKAGE_luci-theme-argon=y
 
           EOF
 
