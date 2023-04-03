@@ -38,7 +38,7 @@ jobs:
           sudo apt install -yqq ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential bzip2 ccache cmake cpio curl device-tree-compiler fastjar flex gawk gettext gcc-multilib g++-multilib git gperf haveged help2man intltool libc6-dev-i386 libelf-dev libglib2.0-dev libgmp3-dev libltdl-dev libmpc-dev libmpfr-dev libncurses5-dev libncursesw5-dev libreadline-dev libssl-dev libtool lrzsz mkisofs msmtp nano ninja-build p7zip p7zip-full patch pkgconf python2.7 python3 python3-pip libpython3-dev qemu-utils rsync scons squashfs-tools subversion swig texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
       - name: Download lede
         run: |
-          git clone https://github.com/coolsnowwolf/lede
+          git clone https://github.com/coolsnowwolf/lede/releases/tag/20220716
           mv ./lede/* ./
       - name: Install addons
         run: |
@@ -110,6 +110,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Libev_Client=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Simple_Obfs=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_NaiveProxy=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray_Plugin=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray=y
           CONFIG_PACKAGE_luci-app-wol=n
