@@ -43,8 +43,15 @@ jobs:
       - name: Install addons
         run: |
           # echo "src-git helloworld https://github.com/fw876/helloworld" >> ./feeds.conf.default 
+          git clone https://github.com/kiddin9/openwrt-packages.git
           cd package
-          git clone https://github.com/kiddin9/openwrt-packages.git openwrt-packages
+          mkdir openwrt-packages
+          mv ../openwrt-packages/luci-app-aliddns openwrt-packages/luci-app-aliddns
+          mv ../openwrt-packages/luci-app-eqos openwrt-packages/luci-app-eqos
+          mv ../openwrt-packages/luci-app-wolplus openwrt-packages/luci-app-wolplus
+          git clone https://github.com/sirpdboy/luci-app-ddns-go
+          git clone --depth 1 -b luci https://github.com/xiaorouji/openwrt-passwall luci-app-passwall
+          git clone --depth 1 -b packages https://github.com/xiaorouji/openwrt-passwall openwrt-passwall
       - name: Update feeds
         run: |
           ./scripts/feeds update -a
@@ -72,40 +79,42 @@ jobs:
 
 
           # APP
-          CONFIG_PACKAGE_luci-app-aria2=y
-          CONFIG_PACKAGE_luci-app-ddns=y
+          # CONFIG_PACKAGE_luci-app-aria2=y
+          CONFIG_PACKAGE_luci-app-ddns=n
           CONFIG_PACKAGE_luci-app-ddns-go=y
           CONFIG_PACKAGE_luci-app-diskman=y
-          CONFIG_PACKAGE_luci-app-dockerman=y
-          CONFIG_PACKAGE_luci-app-frpc=y
-          CONFIG_PACKAGE_luci-app-frps=y
-          CONFIG_PACKAGE_luci-app-hd-idle=y
+          # CONFIG_PACKAGE_luci-app-dockerman=y
+          # CONFIG_PACKAGE_luci-app-frpc=y
+          # CONFIG_PACKAGE_luci-app-frps=y
+          # CONFIG_PACKAGE_luci-app-hd-idle=y
           # CONFIG_PACKAGE_luci-app-mwan3=y
           # CONFIG_PACKAGE_luci-app-mwan3helper=y
           # CONFIG_PACKAGE_luci-app-openvpn=y
-          CONFIG_PACKAGE_luci-app-openvpn-server=y
-          CONFIG_PACKAGE_luci-app-qos=y
+          # CONFIG_PACKAGE_luci-app-openvpn-server=y
+          # CONFIG_PACKAGE_luci-app-qos=y
           # CONFIG_PACKAGE_luci-app-syncdial=y
           CONFIG_PACKAGE_luci-app-ttyd=y
-          CONFIG_PACKAGE_luci-app-turboacc=y
-          CONFIG_PACKAGE_luci-app-usb-printer=y
-          CONFIG_PACKAGE_luci-app-upnp=y
-          CONFIG_PACKAGE_luci-app-vlmcsd=y
-          CONFIG_PACKAGE_luci-app-wrtbwmon=y
-          CONFIG_PACKAGE_luci-app-xlnetacc=y
-          CONFIG_PACKAGE_luci-app-zerotier=y
+          # CONFIG_PACKAGE_luci-app-turboacc=y
+          # CONFIG_PACKAGE_luci-app-usb-printer=y
+          # CONFIG_PACKAGE_luci-app-upnp=y
+          # CONFIG_PACKAGE_luci-app-vlmcsd=y
+          # CONFIG_PACKAGE_luci-app-wrtbwmon=y
+          # CONFIG_PACKAGE_luci-app-xlnetacc=y
+          # CONFIG_PACKAGE_luci-app-zerotier=y
 
           # Third party packages
-          CONFIG_PACKAGE_luci-app-aliddns=y
-          CONFIG_PACKAGE_luci-app-eqos=y
+          # CONFIG_PACKAGE_luci-app-aliddns=y
+          # CONFIG_PACKAGE_luci-app-eqos=y
           CONFIG_PACKAGE_luci-app-passwall=y
           CONFIG_PACKAGE_luci-app-wol=n
           CONFIG_PACKAGE_luci-app-wolplus=y
           
           # WLAN
           CONFIG_PACKAGE_wpad-openssl=y
-          CONFIG_PACKAGE_kmod-mt7921e=y
-          
+          CONFIG_PACKAGE_mt7922bt-firmware=y
+          CONFIG_PACKAGE_kmod-mt7922-firmware=y
+          CONFIG_PACKAGE_kmod-mt7921-common=y
+          CONFIG_PACKAGE_kmod-mt7921-firmware=y
           CONFIG_PACKAGE_luci-theme-argon=y
 
           EOF
