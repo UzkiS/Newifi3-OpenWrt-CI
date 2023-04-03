@@ -111,11 +111,13 @@ jobs:
           
           # WLAN
           CONFIG_PACKAGE_wpad-openssl=y
-          CONFIG_PACKAGE_mt7922bt-firmware=y
-          CONFIG_PACKAGE_kmod-mt7922-firmware=y
           CONFIG_PACKAGE_kmod-mt7921-common=y
           CONFIG_PACKAGE_kmod-mt7921-firmware=y
-          CONFIG_PACKAGE_luci-theme-argon=y
+          CONFIG_PACKAGE_kmod-mt7921e=y
+          CONFIG_PACKAGE_kmod-mt7922-firmware=y
+          CONFIG_PACKAGE_mt7922bt-firmware=y
+
+          # CONFIG_PACKAGE_luci-theme-argon=y
 
           EOF
 
