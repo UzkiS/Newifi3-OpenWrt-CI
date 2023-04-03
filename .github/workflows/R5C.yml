@@ -138,4 +138,4 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: R5C
-          path: bin/targets
+          path: bin/targets/rockchip/armv8/openwrt-rockchip-armv8-friendlyarm_nanopi-r5c-squashfs-sysupgrade.img.gz
