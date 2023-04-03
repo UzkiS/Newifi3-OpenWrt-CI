@@ -68,7 +68,7 @@ jobs:
           CONFIG_PACKAGE_ipv6helper=y
 
           # Storage
-          CONFIG_PACKAGE_autosamba=y
+          # CONFIG_PACKAGE_autosamba=y
           CONFIG_PACKAGE_automount=y
 
 
