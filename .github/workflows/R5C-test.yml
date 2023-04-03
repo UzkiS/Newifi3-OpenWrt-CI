@@ -102,6 +102,10 @@ jobs:
           CONFIG_PACKAGE_luci-app-wol=n
           CONFIG_PACKAGE_luci-app-wolplus=y
           
+          # WLAN
+          CONFIG_PACKAGE_wpad-openssl=y
+          CONFIG_PACKAGE_kmod-mt7921e=y
+          
           CONFIG_PACKAGE_luci-theme-argon=y
 
           EOF
