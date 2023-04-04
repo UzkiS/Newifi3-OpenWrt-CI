@@ -44,14 +44,14 @@ jobs:
         run: |
           # echo "src-git helloworld https://github.com/fw876/helloworld" >> ./feeds.conf.default 
           git clone https://github.com/kiddin9/openwrt-packages.git
-          cd package
-          mkdir openwrt-packages
-          mv ../openwrt-packages/luci-app-aliddns openwrt-packages/luci-app-aliddns
-          mv ../openwrt-packages/luci-app-eqos openwrt-packages/luci-app-eqos
-          mv ../openwrt-packages/luci-app-wolplus openwrt-packages/luci-app-wolplus
-          git clone https://github.com/sirpdboy/luci-app-ddns-go
-          git clone --depth 1 -b luci https://github.com/xiaorouji/openwrt-passwall luci-app-passwall
-          git clone --depth 1 -b packages https://github.com/xiaorouji/openwrt-passwall openwrt-passwall
+          mkdir ./package/openwrt-packages
+          mv ./openwrt-packages/luci-app-aliddns ./package/openwrt-packages/luci-app-aliddns
+          mv ./openwrt-packages/luci-app-eqos ./package/openwrt-packages/luci-app-eqos
+          mv ./openwrt-packages/luci-app-wolplus ./package/openwrt-packages/luci-app-wolplus
+          git clone https://github.com/sirpdboy/luci-app-ddns-go ./package/luci-app-ddns-go
+          git clone --depth 1 -b luci https://github.com/xiaorouji/openwrt-passwall ./package/luci-app-passwall
+          git clone --depth 1 -b packages https://github.com/xiaorouji/openwrt-passwall ./package/openwrt-passwall
+          rm -rf ./openwrt-packages
       - name: Update feeds
         run: |
           ./scripts/feeds update -a
